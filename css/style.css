@@ -1,0 +1,39 @@
+input{
+	display: inline;
+}
+#logo{
+	width: 50px;
+	height:50px;
+}
+
+#title{
+	display: inline;
+}
+
+#support{
+	border-style: solid;
+	text-align: center;
+}
+
+#githubLogo{
+	width: 375px;
+	height: 139px;
+}
+
+.group{
+    display: flex;
+    justify-content: center; 
+}
+
+.passwordModules{
+	 padding: 1px; 
+	 width: 49%;
+	 border-style: solid;
+}
+
+.moduleTitle{
+	text-align: center;
+}
+.labels{
+	display: inline;	
+}
