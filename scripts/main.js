@@ -19,7 +19,6 @@ function initEvents(){
 function getDictionary(){
 	$.getJSON( "./scripts/dictionary/homoglyphDictionary.json", function( data ) {
 		glyphDictionary = data;
-		console.log(glyphDictionary);
 	});
 }
 
