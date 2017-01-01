@@ -1,8 +1,10 @@
 //Global Dictionary
 var glyphDictionary = {};
-
+var lengthDict = {};
 //Initializations 
 getDictionary();
+getLengthDict();
+
 $(document).ready(initEvents);
 
 
@@ -18,7 +20,7 @@ function initEvents(){
 
 //---------------------USER_GENRATED PASSWORD------------------------
 
-//initialize the parsing process
+//Get the homoglyphDictionary
 function getDictionary(){
 	$.getJSON( "./scripts/dictionary/homoglyphDictionary.json", function( data ) {
 		glyphDictionary = data;
@@ -44,6 +46,13 @@ function wordToGlyphed(word,outputID){
 
 ////-------------------RANDOM PASSWORD-----------------------------
 
+//initialize the parsing process
+function getLengthDict(){
+	$.getJSON( "./scripts/dictionary/dictionary.json", function( data ) {
+		lengthDict = data;
+	});
+}
+
 //Generate a random password with a real english word
 function randomPassword(){
 	var length = parseInt($("#passwordLength").val());
@@ -54,12 +63,11 @@ function randomPassword(){
 }
 //Choose a random password with certain length
 function choosePassword(length){
-	$.getJSON( "./scripts/dictionary/dictionary.json", function( data ) {
-		var lengthArray = data[length];
-		var randInd = Math.floor(Math.random() * (lengthArray.length));
-		$("#chosenWord").html(lengthArray[randInd]);
-		wordToGlyphed(lengthArray[randInd] , "#glyphedPassword");
-	});
+	var lengthArray = lengthDict[length];
+	var randInd = Math.floor(Math.random() * (lengthArray.length));
+	$("#chosenWord").html(lengthArray[randInd]);
+	wordToGlyphed(lengthArray[randInd] , "#glyphedPassword");
+	
 }
 //check if input variable is an integer
 function isInteger(x) {
