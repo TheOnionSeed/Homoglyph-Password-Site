@@ -1,8 +1,11 @@
 //Global Dictionary
 var glyphDictionary = {};
+
 //Initializations 
-$(document).ready(initEvents);
 getDictionary();
+$(document).ready(initEvents);
+
+
 //Init all the required events
 function initEvents(){
 	$("#userWordBtn").click(function(){
